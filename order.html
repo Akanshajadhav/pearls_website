@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Products</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .product-header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f3e5f5;
+            color: #4a148c;
+        }
+
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-info {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: #388e3c;
+            margin: 10px 0;
+        }
+
+        .product-button {
+            background-color: #4a148c;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .product-button:hover {
+            background-color: #7b1fa2;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+        }
+
+        .quantity-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .quantity-button {
+            background-color: #f3e5f5;
+            border: 1px solid #4a148c;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .quantity-button:hover {
+            background-color: #4a148c;
+            color: #fff;
+        }
+
+        .modal-footer {
+            margin-top: 20px;
+        }
+
+        .buy-button {
+            background-color: #4a148c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .buy-button:hover {
+            background-color: #7b1fa2;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        /* General Styles */
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.product-header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.product-header h2 {
+    font-size: 2.5rem;
+    color: #ff4081;
+    margin-bottom: 30px;
+}
+
+/* Product Section Styles */
+.traditional-love-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.hover-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    position: relative;  /* Ensure the images are positioned inside the card */
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.image-default,
+.image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-hover {
+    opacity: 0;  /* Hide hover image by default */
+}
+
+.hover-card:hover .image-hover {
+    opacity: 1;  /* Show hover image when hovering */
+}
+
+.hover-card:hover .image-default {
+    opacity: 0;  /* Hide default image on hover */
+}
+
+/* Product Info Styles */
+.product-info {
+    padding: 15px;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    color: #ff4081;
+    margin: 5px 0;
+}
+
+.product-button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-button:hover {
+    background-color: #e91e63;
+}
+
+/* Hover Effect for Card */
+.hover-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header class="product-header">
+        <h2>✨ Exclusive Collection ✨</h2>
+    </header>
+
+    <div class="product-section">
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="1r.jpg" alt="Diamond Ring" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Diamond Ring</h3>
+                <p class="product-name">Classic Gold Ring</p>
+                <p class="product-price">$58.29</p>
+                <button class="product-button" data-image="1r.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="111111.jpg" alt="Gold Ring" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Gold Ring</h3>
+                <p class="product-name">Classic Gold Ring</p>
+                <p class="product-price">$56.29</p>
+                <button class="product-button" data-image="111111.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+            </div>
+        </div>
+  
+       
+        <div class="product">
+        <img src="1111.jpg" alt="Diamond Ring" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Diamond Ring</h3>
+            <p class="product-name">Elegant Diamond Ring</p>
+            <p class="product-price">$58.29</p>
+            <button class="product-button"data-image="1111.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+        </div>
+        </div>
+        <div class="product">
+        <img src="11111.jpg" alt="Gold Ring" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Gold Ring</h3>
+            <p class="product-name">Classic Gold Ring</p>
+            <p class="product-price">$56.29</p>
+            <button class="product-button" data-image="11111.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+        </div>
+        </div>
+        <div class="product">
+        <img src="222.jpg" alt="Diamond Ring" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Diamond Ring</h3>
+            <p class="product-name">Elegant Diamond Ring</p>
+            <p class="product-price">$58.29</p>
+            <button class="product-button"data-image="222.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+        </div>
+        </div>
+        <div class="product">
+        <img src="22222.jpg" alt="Gold Ring" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Gold Ring</h3>
+            <p class="product-name">Classic Gold Ring</p>
+            <p class="product-price">$56.29</p>
+            <button class="product-button" data-image="22222.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+        </div>
+        </div>
+        <div class="product">
+        <img src="l1.jpg" alt="Diamond Ring" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Diamond Ring</h3>
+            <p class="product-name">Elegant Diamond Ring</p>
+            <p class="product-price">$58.29</p>
+            <button class="product-button"data-image="l1.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+        </div>
+        </div>
+        <div class="product">
+        <img src="l2.jpg" alt="Gold Ring" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Gold Ring</h3>
+            <p class="product-name">Classic Gold Ring</p>
+            <p class="product-price">$56.29</p>
+            <button class="product-button" data-image="l2.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+        </div>
+        </div>
+        <div class="product">
+        <img src="l7.jpg" alt="Diamond Ring" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Diamond Ring</h3>
+            <p class="product-name">Elegant Diamond Ring</p>
+            <p class="product-price">$58.29</p>
+            <button class="product-button"data-image="l7.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+        </div>
+        </div>
+        <div class="product">
+        <img src="l4.jpg" alt="Gold Ring" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Gold Ring</h3>
+            <p class="product-name">Classic Gold Ring</p>
+            <p class="product-price">$56.29</p>
+            <button class="product-button" data-image="l4.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+        </div>
+        </div>
+        <div class="product">
+        <img src="l5.jpg" alt="Diamond Ring" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Diamond Ring</h3>
+            <p class="product-name">Elegant Diamond Ring</p>
+            <p class="product-price">$58.29</p>
+            <button class="product-button"data-image="l5.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+        </div>
+        </div>
+        <div class="product">
+        <img src="l6.jpg" alt="Gold Ring" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">Gold Ring</h3>
+            <p class="product-name">Classic Gold Ring</p>
+            <p class="product-price">$56.29</p>
+            <button class="product-button" data-image="l6.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+        </div>
+    </div>
+    <!-- Add more rings here -->
+</div>
+
+<!-- New Section: Traditional Love -->
+<header class="product-header">
+    <h2>🌸 Traditional Love Collection 🌸</h2>
+</header>
+
+    <div class="traditional-love-section">
+    <!-- Product 1 -->
+    <div class="hover-card">
+        <div class="image-container">
+            <img src="33.jpg" alt="Traditional Jewelry" class="image-default">
+            <img src="3r.jpg" alt="Traditional Jewelry Hover" class="image-hover">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Kundan Necklace</h3>
+            <p class="product-price">$56.29</p>
+            <button class="product-button"data-image="33.jpg" data-title="Kundan Necklace" data-price="56.29">Add To Cart</button>
+        </div>
+    </div>
+    
+    <div class="hover-card">
+        <div class="image-container">
+            <img src="3333333.jpg" alt="Traditional Jewelry" class="image-default">
+            <img src="33333.jpg" alt="Traditional Jewelry Hover" class="image-hover">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Kundan Necklace</h3>
+            <p class="product-price">$56.29</p>
+            <button class="product-button"data-image="3333333.jpg" data-title="Kundan Necklace" data-price="56.29">Add To Cart</button>
+        </div>
+    </div>
+   
+    
+    <div class="hover-card">
+        <div class="image-container">
+            <img src="5n.jpg" alt="Traditional Jewelry" class="image-default">
+            <img src="6n.jpg" alt="Traditional Jewelry Hover" class="image-hover">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Kundan Ring</h3>
+            <p class="product-price">$56.29</p>
+            <button class="product-button"data-image="5n.jpg" data-title="Kundan Ring" data-price="56.29">Add To Cart</button>
+        </div>
+    </div>
+    <div class="hover-card">
+        <div class="image-container">
+            <img src="c1.jpg" alt="Traditional Jewelry" class="image-default">
+            <img src="c2.jpg" alt="Traditional Jewelry Hover" class="image-hover">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Kundan Earring</h3>
+            <p class="product-price">$56.29</p>
+            <button class="product-button"data-image="c1.jpg" data-title="Kundan Earring" data-price="56.29">Add To Cart</button>
+        </div>
+    </div>
+    <div class="hover-card">
+        <div class="image-container">
+            <img src="c3.jpg" alt="Traditional Jewelry" class="image-default">
+            <img src="c5.jpg" alt="Traditional Jewelry Hover" class="image-hover">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Kundan Earring</h3>
+            <p class="product-price">$56.29</p>
+            <button class="product-button"data-image="c3.jpg" data-title="Kundan Earring" data-price="56.29">Add To Cart</button>
+        </div>
+    </div>
+    <!-- Add more products here -->
+
+    <!-- Modal -->
+<div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Product Image">
+            <h3 id="modalTitle"></h3>
+            <p id="modalPrice"></p>
+            
+            <div class="quantity-controls">
+                <button id="decreaseQuantity" class="quantity-button">-</button>
+                <span id="quantity">1</span>
+                <button id="increaseQuantity" class="quantity-button">+</button>
+            </div>
+
+            <div class="modal-footer">
+                <button id="buyButton" class="buy-button">Buy</button>
+            </div>
+        </div>
+</div>
+
+<script>
+        // Modal and quantity management
+        const modal = document.getElementById("cartModal");
+        const closeModal = document.querySelector(".close");
+        const productButtons = document.querySelectorAll(".product-button");
+        const modalImage = document.getElementById("modalImage");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalPrice = document.getElementById("modalPrice");
+        const quantityElement = document.getElementById("quantity");
+        let quantity = 1;
+        
+        productButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const imageSrc = button.getAttribute("data-image");
+                const title = button.getAttribute("data-title");
+                const price = button.getAttribute("data-price");
+
+                modalImage.src = imageSrc;
+                modalTitle.textContent = title;
+                modalPrice.textContent = `$${price} x ${quantity} = $${price * quantity}`;
+                modal.style.display = "flex";
+            });
+        });
+
+        closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // Increase/Decrease Quantity
+        document.getElementById("increaseQuantity").addEventListener("click", () => {
+            quantity++;
+            updatePrice();
+        });
+
+        document.getElementById("decreaseQuantity").addEventListener("click", () => {
+            if (quantity > 1) {
+                quantity--;
+                updatePrice();
+            }
+        });
+
+        // Update the price display
+        function updatePrice() {
+            const price = parseFloat(modalPrice.textContent.split(" x")[0].substring(1));
+            modalPrice.textContent = `$${price} x ${quantity} = $${price * quantity}`;
+            quantityElement.textContent = quantity;
+        }
+
+       // Buy Button Logic
+document.getElementById("buyButton").addEventListener("click", () => {
+    // Alert before navigating to the payment page
+    alert("Your order has been placed! Thank you for your purchase.");
+
+    // Redirect to the payment.html page
+    window.location.href = "payment.html";  // Change this URL if the payment page is located in a different folder
+});
+
+
+</script>
+</body>
+</html>

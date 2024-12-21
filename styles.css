@@ -1,0 +1,1070 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* Header Styling */
+/* Bottom Header Styling */
+.bottom-header {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Aligns content to the left and right */
+    align-items: center; /* Vertically centers content */
+}
+
+.header-title {
+    display: flex;
+    align-items: center; /* Vertically align logo and title */
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header-title .logo {
+    width: 40px; /* Set the size of the logo */
+    height: auto; /* Keep aspect ratio */
+    margin-right: 10px; /* Add space between logo and title */
+}
+
+.header-title h1 {
+    margin: 0; /* Remove default margin */
+}
+
+.dropdown-menu {
+    display: flex; /* Aligns dropdowns in a row */
+    justify-content: flex-end; /* Align all dropdowns to the right */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown {
+    position: relative;
+    margin: 0 10px;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropbtn:hover {
+    background-color: #444;
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Align below the button */
+    left: 0; /* Align with the button */
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it appears above other content */
+    border: 1px solid #ddd;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown items on hover */
+}
+
+
+
+/* Header Image Styling */
+.header-image {
+    position: relative;
+    width: 100%;
+    max-width: 1500px; /* Set the container size */
+    height: 400px;
+    overflow: hidden;
+}
+
+.responsive-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the images cover the container */
+    transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+}
+
+.first-image {
+    opacity: 1; /* Initial state: visible */
+    z-index: 1; /* Ensures it is above the second image initially */
+}
+
+.second-image {
+    opacity: 0; /* Initial state: hidden */
+    z-index: 0; /* Under the first image */
+}
+
+.header-image:hover .first-image {
+    opacity: 0; /* Fade out the first image */
+    z-index: 0; /* Send it to the back */
+}
+
+.header-image:hover .second-image {
+    opacity: 1; /* Fade in the second image */
+    z-index: 1; /* Bring it to the front */
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    max-width: 100%; /* Make the slider span the full width */
+    margin: 20px auto; /* Center it with a margin */
+    overflow: hidden; /* Hide content that overflows */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow effect */
+}
+
+/* Slider */
+.slider {
+    display: flex;/* CSS */
+    .header-image {
+        position: relative;
+        width: 100%;
+        max-width: 600px; /* Adjust the max width as needed */
+        overflow: hidden;
+    }
+    
+    .responsive-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transition: opacity 0.5s ease;
+    }
+    
+    .first-image {
+        opacity: 1; /* Initially visible */
+    }
+    
+    .second-image {
+        opacity: 0; /* Initially hidden */
+    }
+    
+    .header-image:hover .first-image {
+        opacity: 0; /* Hide the first image */
+    }
+    
+    .header-image:hover .second-image {
+        opacity: 1; /* Show the second image */
+    }
+    
+    transition: transform 0.5s ease-in-out; /* Smooth sliding effect */
+}
+
+/* Slide */
+.slide {
+    min-width: 100%; /* Each slide takes up the full width */
+    box-sizing: border-box;
+}
+
+/* Slider Images */
+.slider-image {
+    width: 100%;
+    height: 150px; /* Or any height you prefer */
+    object-fit: cover; /* Ensures images fill the space without distortion */
+}
+
+
+
+
+/* Navigation Arrows */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+
+/* Product Slider Container */
+.product-slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    padding: 20px 0;
+    
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+/* Product Slider Heading */
+.product-slider-heading {
+    text-align: center; /* Center the heading */
+    font-size: 36px; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    color: #333; /* Set the color of the heading */
+    margin: 20px 0; /* Add space around the heading */
+}
+
+/* Product Slider (horizontal scroll) */
+.product-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    padding-bottom: 20px; /* Add space to bottom for easier scrolling */
+}
+
+.product-slider::-webkit-scrollbar {
+    height: 8px; /* Customize scrollbar height */
+}
+
+.product-slider::-webkit-scrollbar-thumb {
+    background-color: #888; /* Customize scrollbar thumb */
+    border-radius: 10px;
+}
+
+.product-slider::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Customize scrollbar thumb hover */
+}
+
+/* Individual Product */
+.product {
+    flex: 0 0 250px; /* Set width of each product */
+    background-color:#fff0e6;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(237, 234, 234, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.product-title {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product-price {
+    font-size: 14px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.product-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-button:hover {
+    background-color: #555;
+}
+
+
+
+/* Product Section: Horizontal Layout */
+.product-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px; /* Space between products */
+    margin: 20px auto;
+    max-width: 100%; /* Ensure it adapts to the container width */
+    overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+    position: relative; /* Relative positioning for the header to be centered */
+    flex-wrap: wrap; /* Allow wrapping if space is limited */
+    text-align: center; /* Ensures centered text */
+    background-color:#ffffff; /* Set your desired background color here */
+}
+
+
+/* Product Header: Centered Title */
+.product-section h2 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 50px; /* Adjust margin to control header position */
+    width: 100%;
+    text-align: center;
+    z-index: 10; /* Ensure the header is on top of other elements */
+    
+}
+.product-header{ 
+    text-align: center; /* Center the heading */
+    font-size: 28px; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    color: #333; /* Set the color of the heading */
+    margin: 20px 0; /* Add space around the heading */
+}
+
+
+/* Product Box */
+.product {
+    text-align: center;
+    background-color:#e6ffe6; /* New background color */
+    padding: 12px; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 160px; /* Reduced width */
+    flex-shrink: 0; /* Prevent shrinking when scrolling horizontally */
+}
+
+
+/* Product Image */
+.product-image {
+    width: 100%;
+    height: 50%;
+    border-radius: 40px;
+    margin-bottom: 10px;
+}
+
+/* Product Title */
+.product-title {
+    font-size: 16px; /* Reduced font size */
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Product Name */
+.product-name {
+    font-size: 12px; /* Reduced font size */
+    color: #777;
+}
+/* Styling for the new header below the product section */
+.new-header-container {
+    background-color:#f3f3f3; /* Background color for contrast */
+    padding: 30px 20px; /* Padding to give some space around the text */
+    text-align: center; /* Center text horizontally */
+    margin-top: 20px; /* Space between the product section and this new header */
+    border-radius: 8px; /* Rounded corners for a clean look */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for visual effect */
+}
+
+/* New Header Title */
+.new-header {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+    margin-bottom: 10px; /* Space below the header title */
+}
+
+/* New Header Description Text */
+.new-header-description {
+    font-size: 16px;
+    color: #555; /* Lighter text color */
+    line-height: 1.6;
+    max-width: 800px; /* Optional: Limiting text width for readability */
+    margin: 0 auto; /* Center the text block horizontally */
+    padding: 0 10px; /* Padding for some spacing around the text */
+}
+
+/* Timer Container */
+.timer-container {
+    font-size: 18px; /* Size of the timer text */
+    font-weight: bold; /* Make the timer text bold */
+    color: #333; /* Dark color for visibility */
+    text-align: center; /* Center the timer */
+    margin-top: 20px; /* Space above the timer */
+}
+
+/* Timer individual spans */
+.timer-container span {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #007bff; /* Blue color for timer digits */
+}
+
+/* Optional: Add color changes to each time unit */
+#days {
+    background-color: #ffe5e5;
+}
+
+#hours {
+    background-color: #e5ffe5;
+}
+
+#minutes {
+    background-color: #e5faff;
+}
+
+#seconds {
+    background-color: #f0e5ff;
+}
+
+
+
+
+/* Image and Description Container */
+.image-description-container {
+    display: flex; /* Align items side by side */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    margin-top: 20px; /* Space above the container */
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 10px; /* Reduce the space between image collage and description */
+    width: 100%; /* Ensure the container takes full width */
+}
+
+/* Collage Grid */
+.collage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for the collage */
+    gap: 5px; /* Reduce space between images in the collage */
+}
+
+/* Collage Images */
+.collage-image {
+    width: 100%; /* Make images responsive */
+    height: 100%; /* Maintain aspect ratio */
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: light shadow */
+}
+
+/* Image on the Left */
+.image-left {
+    flex: 1;
+    max-width: 320px; /* Reduce the collage container width */
+    margin-right: 10px; /* Reduce the gap between image collage and description */
+}
+
+/* Description on the Right */
+.description-right {
+    flex: 2; /* Allow the description to take more space */
+    max-width: 600px;
+    text-align: center; /* Center-align text within description */
+}
+
+
+/* Description Title */
+.description-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px; /* Reduce space below the title */
+}
+
+/* Description Text */
+.description-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px; /* Reduce space below the text */
+}
+
+/* Read More Button */
+.read-more-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px; /* Reduce button padding */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px; /* Slightly smaller font size */
+    transition: background-color 0.3s ease;
+}
+
+.read-more-button:hover {
+    background-color: #0056b3;
+}
+
+/* Product Section Styles */
+.rings-product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product:hover .product-image {
+    transform: scale(1.1); /* Zoom-in effect on hover */
+}
+
+/* Hidden Product Info */
+.product-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show Info on Hover */
+.product:hover .product-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-title {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.product-name {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.product-price {
+    font-size: 1em;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.product-button {
+    background-color: #f4a261;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.product-button:hover {
+    background-color: #e76f51;
+}
+
+/* Traditional Love Section */
+.traditional-love-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    background-color: #ffffff;
+
+}
+
+.hover-card {
+    width: 250px;
+    text-align: center;
+    position: relative;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.image-default {
+    opacity: 1; /* Default image is visible */
+}
+
+.image-hover {
+    opacity: 0; /* Hover image is hidden initially */
+}
+
+.image-container:hover .image-default {
+    opacity: 0; /* Hide default image on hover */
+}
+
+.image-container:hover .image-hover {
+    opacity: 1; /* Show hover image on hover */
+}
+
+.product-info {
+    padding: 10px 0;
+    background-color: #fff;
+}
+
+.product-title {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.product-price {
+    font-size: 1em;
+    font-weight: bold;
+    color: #f4a261;
+    margin: 10px 0;
+}
+
+.product-button {
+    background-color: #e76f51;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-button:hover {
+    background-color: #d35400;
+}
+
+
+/* Overall Rating Section */
+.overall-rating-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.rating-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Overall Rating Box */
+.overall-rating {
+    flex: 1;
+    max-width: 250px;
+}
+
+.overall-rating h3 {
+    font-size: 2.5em;
+    color: #ff9f00;
+    margin-bottom: 5px;
+}
+
+.overall-rating .stars {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.overall-rating .rating-text {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Rating Breakdown */
+.rating-breakdown {
+    flex: 2;
+    max-width: 400px;
+}
+
+.rating-bar {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.rating-label {
+    width: 30px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.rating-bar-fill {
+    background-color: #ff9f00;
+    height: 10px;
+    border-radius: 5px;
+    flex: 1;
+    margin: 0 10px;
+    transition: width 0.3s ease;
+}
+
+.rating-percentage {
+    width: 50px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Star Colors */
+.star {
+    font-size: 1.5em;
+    color: #ddd;
+    margin: 0 2px;
+}
+
+.star.filled {
+    color: #ffd700;
+}
+
+.star.half-filled {
+    color: #ffd700;
+    background: linear-gradient(90deg, #ffd700 50%, #ddd 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Comments Section */
+.comments-section {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section .section-header h2 {
+    font-size: 30PX;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.comments-container {
+    display: flex;
+    justify-content: flex-start;  /* Aligns items to the left */
+    align-items: flex-start;  /* Aligns items to the top */
+    gap: 20px;  /* Space between each comment card */
+    overflow-x: auto;  /* Enables horizontal scrolling */
+    padding-bottom: 20px;  /* Space at the bottom */
+}
+
+.comment-card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;  /* Width of each comment card */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex-shrink: 0;  /* Prevent shrinking of cards */
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.username {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-rating {
+    font-size: 1.2em;
+    margin-top: 5px;
+}
+
+.star {
+    font-size: 1.5em;
+    color: #ddd;
+}
+
+.star.filled {
+    color: #ffd700;
+}
+
+.star.half-filled {
+    background: linear-gradient(90deg, #ffd700 50%, #ddd 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.comment-text {
+    font-size: 1em;
+    color: #666;
+    margin-top: 10px;
+}
+
+
+
+
+/* Container for the image slider */
+.image-slider-container {
+    width: 100%; /* Full width */
+    max-width: 100%; /* Optional: restricts the width of the container */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 20px;
+    scroll-snap-type: x mandatory; /* Enable snap scrolling */
+    margin-left: auto;
+    margin-right: auto; /* Center the container horizontally */
+}
+
+/* Image slider inside the container */
+.image-slider {
+    display: flex;
+    gap: 12px; /* Space between the slides */
+    scroll-snap-type: x mandatory;
+}
+
+/* Individual slide styling */
+.image-slide {
+    text-align: center;
+    flex: 0 0 auto; /* Prevent shrinking, keeps slides in a row */
+    scroll-snap-align: start; /* Align the slides when scrolling */
+    width: 200px; /* Adjust the width of each slide */
+}
+
+/* Image styling */
+.slider-image {
+    width: 100%; /* Full width of the slide */
+    height: 80%; /* Keep the aspect ratio */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+/* Styling for pearl name */
+.pearl-name {
+    margin-top: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Optional: Style for the scrollbar */
+.image-slider-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.image-slider-container::-webkit-scrollbar-thumb {
+    background-color: #979d97;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.image-slider-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+
+
+
+
+/* Footer Styling */
+.footer {
+    background-color: black;  /* Set the footer background to black */
+    color: #fff;
+    margin-top: 50px;
+    padding: 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Footer Content Styling */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between footer sections */
+}
+
+/* Each footer section should be aligned vertically within its space */
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    width: 30%; /* Adjust width as per design */
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: #f1f1f1;
+}
+
+/* Aligning the payment icons in a row */
+.payment-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.payment-icons h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.payment-icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.payment-icons-container i {
+    font-size: 30px;
+    color: #fff;
+}
+
+.payment-icons-container i:hover {
+    color: #ddd;
+}
+
+/* Footer Bottom Styling */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+/* Social Media Links Section */
+.social-links li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.social-links li a {
+    color: #ddd;
+    font-size: 24px; /* Increase the size of the links */
+}
+
+.social-links li a i {
+    font-size: 36px; /* Increase the icon size */
+}
+
+.social-links li a:hover {
+    color: #fff;
+}
+
+
+
