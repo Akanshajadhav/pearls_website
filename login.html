@@ -3,88 +3,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
   <title>Login and Register</title>
   <style>
-    /* Make the body use a full-screen background image */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url('images/bimage.jpg') no-repeat center center fixed;
-      background-size: cover; /* Ensures the image covers the entire background */
-    }
-    .form-container {
-      background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-      padding: 20px 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 300px;
-    }
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .form-container label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-    .form-container input[type="text"],
-    .form-container input[type="email"],
-    .form-container input[type="password"],
-    .form-container input[type="tel"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-    .form-container button {
-      width: 100%;
-      padding: 10px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .form-container button:hover {
-      background-color: #0056b3;
-    }
-    .form-container .toggle-button {
-      margin-top: 10px;
-      background-color: #6c757d;
-    }
-    .form-container .toggle-button:hover {
-      background-color: #5a6268;
-    }
+  /* Make the body use a full-screen background image */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Ensures the header stays at the top while the form is centered */
+  justify-content: center;
+  align-items: center;
+  background: url('images/bimage.jpg') no-repeat center center fixed;
+  background-size: cover; /* Ensures the image covers the entire background */
+}
+
+/* Bottom Header Styling */
+.bottom-header {
+  background-color: #333;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between; /* Aligns content to the left and right */
+  align-items: center; /* Vertically centers content */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-title {
+  display: flex;
+  align-items: center; /* Vertically align logo and title */
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-title .logo {
+  width: 40px; /* Set the size of the logo */
+  height: auto; /* Keep aspect ratio */
+  margin-right: 10px; /* Add space between logo and title */
+}
+
+.header-title h1 {
+  margin: 0; /* Remove default margin */
+}
+
+.dropdown-menu {
+  display: flex; /* Aligns dropdowns in a row */
+  justify-content: flex-end; /* Align all dropdowns to the right */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown {
+  position: relative;
+  margin: 0 10px;
+}
+
+.dropbtn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropbtn:hover {
+  background-color: #444;
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%; /* Align below the button */
+  left: 0; /* Align with the button */
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Ensure it appears above other content */
+  border: 1px solid #ddd;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block; /* Show dropdown items on hover */
+}
+
+/* Form Container Styling */
+.form-container {
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  position: relative;
+  z-index: 10; /* Ensures the form stays above the background image */
+  margin-top: 100px; /* Adjusts the form's position to not overlap with the fixed header */
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+.form-container .toggle-button {
+  margin-top: 10px;
+  background-color: #6c757d;
+}
+
+.form-container .toggle-button:hover {
+  background-color: #5a6268;
+}
+
   </style>
 </head>
 <body>
+
+  <!-- Bottom Header -->
+  <header class="bottom-header">
+    <div class="header-title">
+      <img src="images/pearl.png" alt="Krishana Pearls Logo" class="logo"> <!-- Added logo -->
+      <h1>Krishana Pearls</h1> <!-- Added "Krishana Pearls" here -->
+    </div>
+    <nav class="dropdown-menu">
+      <!-- Dropdown 3: Plain Pearl -->
+      <div class="dropdown">
+        <button class="dropbtn">Plain Pearl</button>
+        <div class="dropdown-content">
+          <a href="#singlepearl">Single Pearl</a>
+          <a href="#loosepearls">Loose Pearls</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn"><a href="login.html" style="color: white;">Bulk Order</a></button>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn"><a href="login.html" style="color: white;">LOGIN</a></button>
+      </div>
+    </nav>
+  </header>
+
   <div class="form-container">
     <!-- Login Form -->
-    <div id="login-form">
-      <h2>Login</h2>
-      <form action="#" method="POST">
-        <label for="login-name">Name</label>
-        <input type="text" id="login-name" name="name" placeholder="Enter your name" required>
-
-        <label for="login-email">Email</label>
-        <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
-
-        <label for="login-password">Password</label>
-        <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
-
-        <button type="submit">Login</button>
-        <button type="button" class="toggle-button" onclick="showRegister()">Register</button>
-      </form>
-    </div>
+    <h2>Login</h2>
+    <form id="login-form" action="#" method="POST">
+      <label for="login-email">Email</label>
+      <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+    
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+    
+      <button type="submit">Login</button>
+      <button type="button" class="toggle-button" onclick="showRegister()">Register</button>
+    </form>
 
     <!-- Register Form -->
     <div id="register-form" style="display: none;">
@@ -112,6 +235,29 @@
   </div>
 
   <script>
+    // Dummy credentials
+    const dummyCredentials = {
+      email: "user@example.com",
+      password: "password123"
+    };
+
+    // Function to handle login
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission to reload the page
+
+      // Get input values
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      // Check if the entered credentials match the dummy credentials
+      if (email === dummyCredentials.email && password === dummyCredentials.password) {
+        // Redirect to order page
+        window.location.href = "order.html";
+      } else {
+        alert("Invalid credentials, please try again.");
+      }
+    });
+
     function showRegister() {
       document.getElementById('login-form').style.display = 'none';
       document.getElementById('register-form').style.display = 'block';

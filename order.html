@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header class="bottom-header">
+        <div class="header-title">
+            <img src="images/pearl.png" alt="Krishana Pearls Logo" class="logo"> <!-- Added logo -->
+            <h1>Krishana Pearls</h1> <!-- Added "Krishana Pearls" here -->
+        </div>
+        <nav class="dropdown-menu">
+           
+            <!-- Dropdown 3: Plain Pearl -->
+            <div class="dropdown">
+                <button class="dropbtn">Plain Pearl</button>
+                <div class="dropdown-content">
+                    <a href="#singlepearl">Single Pearl</a>
+                    <a href="#loosepearls">Loose Pearls</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><a href="login.html" style="color: white;">Bulk Order</a></button>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn"><a href="login.html" style="color: white;">LOGIN</a></button>
+              </div>
+              
+        </nav>
+    </header>
+    
     <title>Jewelry Products</title>
+
     <style>
         /* General Styles */
         body {
@@ -260,6 +286,91 @@ body {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
+/* Bottom Header Styling */
+.bottom-header {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Aligns content to the left and right */
+    align-items: center; /* Vertically centers content */
+}
+
+.header-title {
+    display: flex;
+    align-items: center; /* Vertically align logo and title */
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header-title .logo {
+    width: 40px; /* Set the size of the logo */
+    height: auto; /* Keep aspect ratio */
+    margin-right: 10px; /* Add space between logo and title */
+}
+
+.header-title h1 {
+    margin: 0; /* Remove default margin */
+}
+
+.dropdown-menu {
+    display: flex; /* Aligns dropdowns in a row */
+    justify-content: flex-end; /* Align all dropdowns to the right */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown {
+    position: relative;
+    margin: 0 10px;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropbtn:hover {
+    background-color: #444;
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Align below the button */
+    left: 0; /* Align with the button */
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it appears above other content */
+    border: 1px solid #ddd;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown items on hover */
+}
+
+
+
 
 
 

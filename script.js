@@ -138,8 +138,41 @@ document.querySelector('.prev-product').addEventListener('click', () => {
     productSlider.scrollBy({ left: -300, behavior: 'smooth' });
 });
 
+// Redirect Function
+const dummyCredentials = {
+    email: "user@example.com",
+    password: "password123"
+  };
 
+  // Function to handle login
+  document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission to reload the page
 
+    // Get input values
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    // Debugging: Log the entered values to check if they are correct
+    console.log("Entered Email: ", email);
+    console.log("Entered Password: ", password);
+
+    // Check if the entered credentials match the dummy credentials
+    if (email === dummyCredentials.email && password === dummyCredentials.password) {
+      // Debugging: Log a message to confirm login success
+      console.log("Login successful. Redirecting to order.html.");
+      // Redirect to order page
+      window.location.href = "order.html"; // This should redirect you to order.html
+    } else {
+      // Debugging: Log an error message if credentials are incorrect
+      console.log("Invalid credentials.");
+      alert("Invalid credentials, please try again.");
+    }
+  });
+
+  function showRegister() {
+    // Function to switch to register page (if needed)
+    alert("Redirecting to the Register page...");
+  }
 
 
 
