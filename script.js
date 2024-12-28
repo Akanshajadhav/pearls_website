@@ -175,9 +175,73 @@ const dummyCredentials = {
   }
 
 
+  function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProduct = cart.find(item => item.id === product.id);
+
+    if (existingProduct) {
+        // Show a toast when the product is already in the cart
+        showToast('Product is already in the cart!');
+    } else {
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+
+        // Show a toast when the product is successfully added to the cart
+        showToast('Product added to the cart!');
+    }
+}
+
+// Function to show the toast notification
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.innerText = message;
+
+    // Show the toast
+    toast.classList.add('show');
+
+    // Hide the toast after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
 
 
+        // Function to proceed to checkout
+        function proceedToCheckout(product) {
+            localStorage.setItem('checkout', JSON.stringify([product]));
+            window.location.href = 'checkout.html';
+        }
 
+        // Function to show the success modal
+        function showSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            modal.classList.add('show-modal');
+        }
 
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('success-modal');
+            modal.classList.remove('show-modal');
+        }
 
+        // Function to update the cart count
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartIcon = document.getElementById('cart-icon');
+            if (cartIcon) {
+                cartIcon.setAttribute('data-count', cart.length);
+            }
+        }
+
+        // Initialize the product details and cart count
+        const productId = getProductId();
+        if (productId) {
+            displayProductDetails(productId);
+        } else {
+            alert("No product selected");
+        }
+
+        // Update the cart count on page load
+        updateCartCount();
 

@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bottom Header -->
     <header class="bottom-header">
         <div class="header-title">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+                rel="stylesheet">
             <img src="images/pearl.png" alt="Krishana Pearls Logo" class="logo"> <!-- Added logo -->
             <h1>Krishana Pearls</h1> <!-- Added "Krishana Pearls" here -->
         </div>
         <nav class="dropdown-menu">
-           
-            <!-- Dropdown 3: Plain Pearl -->
-            <div class="dropdown">
-                <button class="dropbtn">Plain Pearl</button>
-                <div class="dropdown-content">
-                    <a href="#singlepearl">Single Pearl</a>
-                    <a href="#loosepearls">Loose Pearls</a>
-                </div>
-            </div>
+            <!-- Dropdown 1: Bulk Order -->
             <div class="dropdown">
                 <button class="dropbtn"><a href="login.html" style="color: white;">Bulk Order</a></button>
-              </div>
-              <div class="dropdown">
-                <button class="dropbtn"><a href="login.html" style="color: white;">LOGIN</a></button>
-              </div>
-              
+            </div>
+
+            <!-- Dropdown 2: Login -->
+            <div class="dropdown">
+                <button class="dropbtn"><a href="login.html" style="color: white;">Login</a></button>
+            </div>
+
+            <!-- Dropdown 3: Buy Now -->
+            <div class="dropdown">
+                <div>
+                    <a href="checkout.html"> <i class="fas fa-shopping-cart cart-icon"></i></a>
+                </div>
+
+            </div>
         </nav>
     </header>
-    
+
+
+
     <title>Jewelry Products</title>
 
     <style>
@@ -85,12 +93,12 @@
 
         .product-price {
             font-size: 16px;
-            color: #388e3c;
+            color: #020202;
             margin: 10px 0;
         }
 
         .product-button {
-            background-color: #4a148c;
+            background-color: #060606;
             color: #fff;
             border: none;
             padding: 10px 15px;
@@ -101,7 +109,7 @@
         }
 
         .product-button:hover {
-            background-color: #7b1fa2;
+            background-color: #060606;
         }
 
         /* Modal Styles */
@@ -119,7 +127,7 @@
         }
 
         .modal-content {
-            background-color: #fff;
+            background-color: #f4eef4;
             padding: 20px;
             border-radius: 10px;
             max-width: 400px;
@@ -149,7 +157,7 @@
         }
 
         .quantity-button:hover {
-            background-color: #4a148c;
+            background-color: #0c0c0c;
             color: #fff;
         }
 
@@ -158,7 +166,7 @@
         }
 
         .buy-button {
-            background-color: #4a148c;
+            background-color: #0d0d0e;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -167,215 +175,248 @@
         }
 
         .buy-button:hover {
-            background-color: #7b1fa2;
+            background-color: #111111;
         }
 
         .close {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 24px;
+            top: 40px;
+            right: 500px;
+            font-size: 26px;
             cursor: pointer;
+            color: black;
         }
+
         /* General Styles */
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-}
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
 
-.product-header {
-    text-align: center;
-    margin-top: 20px;
-}
+        .product-header {
+            text-align: center;
+            margin-top: 20px;
+        }
 
-.product-header h2 {
-    font-size: 2.5rem;
-    color: #ff4081;
-    margin-bottom: 30px;
-}
+        .product-header h2 {
+            font-size: 2.5rem;
+            color: #0e0e0e;
+            margin-bottom: 30px;
+        }
 
-/* Product Section Styles */
-.traditional-love-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 0 20px;
-}
+        /* Product Section Styles */
+        .traditional-love-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px;
+        }
 
-.hover-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-    position: relative;  /* Ensure the images are positioned inside the card */
-}
+        .hover-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+            position: relative;
+            /* Ensure the images are positioned inside the card */
+        }
 
-/* Image Container */
-.image-container {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-}
+        /* Image Container */
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
 
-.image-default,
-.image-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease-in-out;
-}
+        .image-default,
+        .image-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease-in-out;
+        }
 
-.image-hover {
-    opacity: 0;  /* Hide hover image by default */
-}
+        .image-hover {
+            opacity: 0;
+            /* Hide hover image by default */
+        }
 
-.hover-card:hover .image-hover {
-    opacity: 1;  /* Show hover image when hovering */
-}
+        .hover-card:hover .image-hover {
+            opacity: 1;
+            /* Show hover image when hovering */
+        }
 
-.hover-card:hover .image-default {
-    opacity: 0;  /* Hide default image on hover */
-}
+        .hover-card:hover .image-default {
+            opacity: 0;
+            /* Hide default image on hover */
+        }
 
-/* Product Info Styles */
-.product-info {
-    padding: 15px;
-}
+        /* Product Info Styles */
+        .product-info {
+            padding: 15px;
+        }
 
-.product-title {
-    font-size: 1.2rem;
-    color: #333;
-    margin: 10px 0;
-}
+        .product-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 10px 0;
+        }
 
-.product-price {
-    font-size: 1.1rem;
-    color: #ff4081;
-    margin: 5px 0;
-}
+        .product-price {
+            font-size: 1.1rem;
+            color: #0f0e0e;
+            margin: 5px 0;
+        }
 
-.product-button {
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        .product-button {
+            background-color: #0e0e0e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-.product-button:hover {
-    background-color: #e91e63;
-}
+        .product-button:hover {
+            background-color: #050505;
+        }
 
-/* Hover Effect for Card */
-.hover-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-/* Bottom Header Styling */
-.bottom-header {
-    background-color: #333;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between; /* Aligns content to the left and right */
-    align-items: center; /* Vertically centers content */
-}
+        /* Hover Effect for Card */
+        .hover-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
 
-.header-title {
-    display: flex;
-    align-items: center; /* Vertically align logo and title */
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    margin: 0;
-}
+        /* Bottom Header Styling */
+        .bottom-header {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            /* Aligns content to the left and right */
+            align-items: center;
+            /* Vertically centers content */
+        }
 
-.header-title .logo {
-    width: 40px; /* Set the size of the logo */
-    height: auto; /* Keep aspect ratio */
-    margin-right: 10px; /* Add space between logo and title */
-}
+        .header-title {
+            display: flex;
+            align-items: center;
+            /* Vertically align logo and title */
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0;
+        }
 
-.header-title h1 {
-    margin: 0; /* Remove default margin */
-}
+        .header-title .logo {
+            width: 40px;
+            /* Set the size of the logo */
+            height: auto;
+            /* Keep aspect ratio */
+            margin-right: 10px;
+            /* Add space between logo and title */
+        }
 
-.dropdown-menu {
-    display: flex; /* Aligns dropdowns in a row */
-    justify-content: flex-end; /* Align all dropdowns to the right */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+        .header-title h1 {
+            margin: 0;
+            /* Remove default margin */
+        }
 
-.dropdown {
-    position: relative;
-    margin: 0 10px;
-}
+        .dropdown-menu {
+            display: flex;
+            /* Aligns dropdowns in a row */
+            justify-content: flex-end;
+            /* Align all dropdowns to the right */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-.dropbtn {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+        .dropdown {
+            position: relative;
+            margin: 0 10px;
+        }
 
-.dropbtn:hover {
-    background-color: #444;
-}
+        .dropbtn {
+            background-color: #070707;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-.dropdown-content {
-    display: none; /* Hidden by default */
-    position: absolute;
-    top: 100%; /* Align below the button */
-    left: 0; /* Align with the button */
-    background-color: white;
-    min-width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 10; /* Ensure it appears above other content */
-    border: 1px solid #ddd;
-}
+        .dropbtn:hover {
+            background-color: #111111;
+        }
 
-.dropdown-content a {
-    color: black;
-    padding: 10px 15px;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-}
+        .dropdown-content {
+            display: none;
+            /* Hidden by default */
+            position: absolute;
+            top: 100%;
+            /* Align below the button */
+            left: 0;
+            /* Align with the button */
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            /* Ensure it appears above other content */
+            border: 1px solid #ddd;
+        }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
+        .dropdown-content a {
+            color: black;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
 
-.dropdown:hover .dropdown-content {
-    display: block; /* Show dropdown items on hover */
-}
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
 
+        .dropdown:hover .dropdown-content {
+            display: block;
+            /* Show dropdown items on hover */
+        }
 
+        /* Buy Now Icon */
+        .cart-icon {
+            font-size: 28px;
+            /* Adjust the size of the icon */
+            color: rgb(245, 241, 241);
+            /* Set the desired color */
+            cursor: pointer;
+            line-height: 1;
+            /* Fix vertical alignment issues */
+            display: inline-block;
+            /* Ensure it's treated as a standalone element */
+            vertical-align: middle;
+            /* Align with other elements if necessary */
 
-
-
-
+        }
+ 
     </style>
 </head>
+
 <body>
     <header class="product-header">
         <h2>✨ Exclusive Collection ✨</h2>
@@ -384,264 +425,217 @@ body {
     <div class="product-section">
         <!-- Product 1 -->
         <div class="product">
-            <img src="images/1r.jpg" alt="Diamond Ring" class="product-image">
+            <img src="images/p1.jpg" alt="Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Diamond Ring</h3>
-                <p class="product-name">Classic Gold Ring</p>
-                <p class="product-price">$58.29</p>
-                <button class="product-button" data-image="images/1r.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+                <h3 class="product-title">Fresh Water Pearls</h3>
+                <p class="product-name">Origin:India</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p1.jpg" data-title="Fresh Water Pearls" data-price="100">Buy
+                    Now</button>
             </div>
         </div>
         <!-- Product 2 -->
         <div class="product">
-            <img src="images/111111.jpg" alt="Gold Ring" class="product-image">
+            <img src="images/p1.jpg" alt="South Sea Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Gold Ring</h3>
-                <p class="product-name">Classic Gold Ring</p>
-                <p class="product-price">$56.29</p>
-                <button class="product-button" data-image="images/111111.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+                <h3 class="product-title">South Sea Pearls</h3>
+                <p class="product-name">Origin:India</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p1.jpg" data-title="South Sea Pearls"
+                    data-price="100">Buy Now</button>
             </div>
         </div>
-    
+
         <div class="product">
-            <img src="images/1111.jpg" alt="Diamond Ring" class="product-image">
+            <img src="images/p1.jpg" alt="Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Diamond Ring</h3>
-                <p class="product-name">Elegant Diamond Ring</p>
-                <p class="product-price">$58.29</p>
-                <button class="product-button" data-image="images/1111.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
-            </div>
-        </div>
-        <div class="product">
-            <img src="images/11111.jpg" alt="Gold Ring" class="product-image">
-            <div class="product-info">
-                <h3 class="product-title">Gold Ring</h3>
-                <p class="product-name">Classic Gold Ring</p>
-                <p class="product-price">$56.29</p>
-                <button class="product-button" data-image="images/11111.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+                <h3 class="product-title">Fresh Water Pearls</h3>
+                <p class="product-name">Origin:India</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p1.jpg" data-title="Fresh Water Pearls"
+                    data-price="100">Buy Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/222.jpg" alt="Diamond Ring" class="product-image">
+            <img src="images/p1.jpg" alt="South Sea Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Diamond Ring</h3>
-                <p class="product-name">Elegant Diamond Ring</p>
-                <p class="product-price">$58.29</p>
-                <button class="product-button" data-image="images/222.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+                <h3 class="product-title">South Sea Pearls</h3>
+                <p class="product-name">Origin:India</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p1.jpg" data-title="South Sea Pearls" data-price="100">Buy
+                    Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/22222.jpg" alt="Gold Ring" class="product-image">
+            <img src="images/p6.jpg" alt="Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Gold Ring</h3>
-                <p class="product-name">Classic Gold Ring</p>
-                <p class="product-price">$56.29</p>
-                <button class="product-button" data-image="images/22222.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+                <h3 class="product-title">Fresh Water Pearls</h3>
+                <p class="product-name">Origin:Indonesia</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p6.jpg" data-title="Fresh Water Pearls"
+                    data-price="100">Buy Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/l1.jpg" alt="Diamond Ring" class="product-image">
+            <img src="images/p6.jpg" alt="South Sea Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Diamond Ring</h3>
-                <p class="product-name">Elegant Diamond Ring</p>
-                <p class="product-price">$58.29</p>
-                <button class="product-button" data-image="images/l1.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+                <h3 class="product-title">South Sea Pearls</h3>
+                <p class="product-name">Origin:Indonesia</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p6.jpg" data-title="South Sea Pearls" data-price="100">Buy
+                    Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/l2.jpg" alt="Gold Ring" class="product-image">
+            <img src="images/p6.jpg" alt="Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Gold Ring</h3>
-                <p class="product-name">Classic Gold Ring</p>
-                <p class="product-price">$56.29</p>
-                <button class="product-button" data-image="images/l2.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+                <h3 class="product-title">Fresh Water Pearls</h3>
+                <p class="product-name">Origin:Indonesia</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p6.jpg" data-title="Fresh Water Pearls" data-price="100">Buy
+                    Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/l7.jpg" alt="Diamond Ring" class="product-image">
+            <img src="images/p6.jpg" alt="South Sea Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Diamond Ring</h3>
-                <p class="product-name">Elegant Diamond Ring</p>
-                <p class="product-price">$58.29</p>
-                <button class="product-button" data-image="images/l7.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+                <h3 class="product-title">South Sea Pearls</h3>
+                <p class="product-name">Origin:Indonesia</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p6.jpg" data-title="South Sea Pearls" data-price="100">Buy
+                    Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/l4.jpg" alt="Gold Ring" class="product-image">
+            <img src="images/p3.jpg" alt="Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Gold Ring</h3>
-                <p class="product-name">Classic Gold Ring</p>
-                <p class="product-price">$56.29</p>
-                <button class="product-button" data-image="images/l4.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+                <h3 class="product-title">Fresh Water Pearls</h3>
+                <p class="product-name">Origin:Australian</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p3.jpg" data-title="Fresh Water Pearls" data-price="100">Buy
+                    Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/l5.jpg" alt="Diamond Ring" class="product-image">
+            <img src="images/p3.jpg" alt="South Sea Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Diamond Ring</h3>
-                <p class="product-name">Elegant Diamond Ring</p>
-                <p class="product-price">$58.29</p>
-                <button class="product-button" data-image="images/l5.jpg" data-title="Diamond Ring" data-price="58.29">Add To Cart</button>
+                <h3 class="product-title">South Sea Pearls</h3>
+                <p class="product-name">Origin:Australian</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p3.jpg" data-title="South Sea Pearls" data-price="100">Buy
+                    Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/l6.jpg" alt="Gold Ring" class="product-image">
+            <img src="images/p3.jpg" alt="Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Gold Ring</h3>
-                <p class="product-name">Classic Gold Ring</p>
-                <p class="product-price">$56.29</p>
-                <button class="product-button" data-image="images/l6.jpg" data-title="Gold Ring" data-price="56.29">Add To Cart</button>
+                <h3 class="product-title">Fresh Water Pearls</h3>
+                <p class="product-name">Origin:Australian</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p3.jpg" data-title="Fresh Water Pearls" data-price="100">Buy
+                    Now</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="images/p3.jpg" alt="South Sea Pearls" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">South Sea Pearls</h3>
+                <p class="product-name">Origin:Australian</p>
+                <p class="product-price">₹100</p>
+                <button class="product-button" data-image="images/p3.jpg" data-title="South Sea Pearls" data-price="100">Buy
+                    Now</button>
             </div>
         </div>
         <!-- Add more rings here -->
     </div>
-    
 
-<!-- New Section: Traditional Love -->
-<header class="product-header">
-    <h2>🌸 Traditional Love Collection 🌸</h2>
-</header>
 
-    <div class="traditional-love-section">
-    <!-- Product 1 -->
-    <div class="hover-card">
-        <div class="image-container">
-            <img src="images/33.jpg" alt="Traditional Jewelry" class="image-default">
-            <img src="images/3r.jpg" alt="Traditional Jewelry Hover" class="image-hover">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">Kundan Necklace</h3>
-            <p class="product-price">$56.29</p>
-            <button class="product-button"data-image="33.jpg" data-title="Kundan Necklace" data-price="56.29">Add To Cart</button>
-        </div>
-    </div>
-    
-    <div class="hover-card">
-        <div class="image-container">
-            <img src="images/3333333.jpg" alt="Traditional Jewelry" class="image-default">
-            <img src="images/33333.jpg" alt="Traditional Jewelry Hover" class="image-hover">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">Kundan Necklace</h3>
-            <p class="product-price">$56.29</p>
-            <button class="product-button"data-image="3333333.jpg" data-title="Kundan Necklace" data-price="56.29">Add To Cart</button>
-        </div>
-    </div>
-   
-    
-    <div class="hover-card">
-        <div class="image-container">
-            <img src="images/5n.jpg" alt="Traditional Jewelry" class="image-default">
-            <img src="images/6n.jpg" alt="Traditional Jewelry Hover" class="image-hover">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">Kundan Ring</h3>
-            <p class="product-price">$56.29</p>
-            <button class="product-button"data-image="5n.jpg" data-title="Kundan Ring" data-price="56.29">Add To Cart</button>
-        </div>
-    </div>
-    <div class="hover-card">
-        <div class="image-container">
-            <img src="images/c1.jpg" alt="Traditional Jewelry" class="image-default">
-            <img src="images/c2.jpg" alt="Traditional Jewelry Hover" class="image-hover">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">Kundan Earring</h3>
-            <p class="product-price">$56.29</p>
-            <button class="product-button"data-image="c1.jpg" data-title="Kundan Earring" data-price="56.29">Add To Cart</button>
-        </div>
-    </div>
-    <div class="hover-card">
-        <div class="image-container">
-            <img src="images/c3.jpg" alt="Traditional Jewelry" class="image-default">
-            <img src="images/c5.jpg" alt="Traditional Jewelry Hover" class="image-hover">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">Kundan Earring</h3>
-            <p class="product-price">$56.29</p>
-            <button class="product-button"data-image="c3.jpg" data-title="Kundan Earring" data-price="56.29">Add To Cart</button>
-        </div>
-    </div>
-    <!-- Add more products here -->
 
-    <!-- Modal -->
-<div id="cartModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modalImage" src="" alt="Product Image">
-            <h3 id="modalTitle"></h3>
-            <p id="modalPrice"></p>
-            
-            <div class="quantity-controls">
-                <button id="decreaseQuantity" class="quantity-button">-</button>
-                <span id="quantity">1</span>
-                <button id="increaseQuantity" class="quantity-button">+</button>
-            </div>
+        <!-- Modal -->
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times; </span>
+                <img id="modalImage" src="" alt="Product Image">
+                <h3 id="modalTitle"></h3>
+               
+                <p id="modalPrice"></p>
 
-            <div class="modal-footer">
-                <button id="buyButton" class="buy-button">Buy</button>
+                <div class="quantity-controls">
+                    <button id="decreaseQuantity" class="quantity-button">-</button>
+                    <span id="quantity">1 </span>
+                    <button id="increaseQuantity" class="quantity-button">+</button>
+                </div>
+
+                <div class="modal-footer">
+                    <button id="buyButton" class="buy-button">Buy</button>
+                </div>
             </div>
         </div>
-</div>
 
-<script>
-        // Modal and quantity management
-        const modal = document.getElementById("cartModal");
-        const closeModal = document.querySelector(".close");
-        const productButtons = document.querySelectorAll(".product-button");
-        const modalImage = document.getElementById("modalImage");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalPrice = document.getElementById("modalPrice");
-        const quantityElement = document.getElementById("quantity");
-        let quantity = 1;
-        
-        productButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                const imageSrc = button.getAttribute("data-image");
-                const title = button.getAttribute("data-title");
-                const price = button.getAttribute("data-price");
+        <script>
+            // Set the exchange rate (e.g., 1 USD = 83 INR; you can update this value dynamically if needed)
+            const exchangeRate = 1;
 
-                modalImage.src = imageSrc;
-                modalTitle.textContent = title;
-                modalPrice.textContent = `$${price} x ${quantity} = $${price * quantity}`;
-                modal.style.display = "flex";
+            // Modal and quantity management
+            const modal = document.getElementById("cartModal");
+            const closeModal = document.querySelector(".close");
+            const productButtons = document.querySelectorAll(".product-button");
+            const modalImage = document.getElementById("modalImage");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalPrice = document.getElementById("modalPrice");
+            const quantityElement = document.getElementById("quantity");
+            let quantity = 1;
+
+            productButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const imageSrc = button.getAttribute("data-image");
+                    const title = button.getAttribute("data-title");
+                    const priceInDollars = parseFloat(button.getAttribute("data-price"));
+
+                    const priceInRupees = (priceInDollars * exchangeRate).toFixed(2);
+
+                    modalImage.src = imageSrc;
+                    modalTitle.textContent = title;
+                    modalPrice.textContent = `₹${priceInRupees} x ${quantity} Carat = ₹${(priceInRupees * quantity).toFixed(2)}`;
+                    modal.style.display = "flex";
+                });
             });
-        });
 
-        closeModal.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
+            closeModal.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
 
-        // Increase/Decrease Quantity
-        document.getElementById("increaseQuantity").addEventListener("click", () => {
-            quantity++;
-            updatePrice();
-        });
-
-        document.getElementById("decreaseQuantity").addEventListener("click", () => {
-            if (quantity > 1) {
-                quantity--;
+            // Increase/Decrease Quantity
+            document.getElementById("increaseQuantity").addEventListener("click", () => {
+                quantity++;
                 updatePrice();
+            });
+
+            document.getElementById("decreaseQuantity").addEventListener("click", () => {
+                if (quantity > 1) {
+                    quantity--;
+                    updatePrice();
+                }
+            });
+
+            // Update the price display
+            function updatePrice() {
+                const priceInRupees = parseFloat(modalPrice.textContent.split(" x")[0].substring(1));
+                modalPrice.textContent = `₹${priceInRupees} x ${quantity} Carat =  ₹${(priceInRupees * quantity).toFixed(2)}`;
+                quantityElement.textContent = quantity;
             }
-        });
+            
 
-        // Update the price display
-        function updatePrice() {
-            const price = parseFloat(modalPrice.textContent.split(" x")[0].substring(1));
-            modalPrice.textContent = `$${price} x ${quantity} = $${price * quantity}`;
-            quantityElement.textContent = quantity;
-        }
+            // Buy Button Logic
+            document.getElementById("buyButton").addEventListener("click", () => {
+                // Alert before navigating to the payment page
+                alert("Your order has been placed! Thank you for your purchase.");
 
-       // Buy Button Logic
-document.getElementById("buyButton").addEventListener("click", () => {
-    // Alert before navigating to the payment page
-    alert("Your order has been placed! Thank you for your purchase.");
+                // Redirect to the payment.html page
+                window.location.href = "payment.html";  // Change this URL if the payment page is located in a different folder
+            });
 
-    // Redirect to the payment.html page
-    window.location.href = "payment.html";  // Change this URL if the payment page is located in a different folder
-});
-
-
-</script>
+        </script>
 </body>
+
 </html>

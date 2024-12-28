@@ -1,174 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>Login and Register</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
-  /* Make the body use a full-screen background image */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column; /* Ensures the header stays at the top while the form is centered */
-  justify-content: center;
-  align-items: center;
-  background: url('images/bimage.jpg') no-repeat center center fixed;
-  background-size: cover; /* Ensures the image covers the entire background */
-}
+    /* Make the body use a full-screen background image */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      /* Ensures the header stays at the top while the form is centered */
+      justify-content: center;
+      align-items: center;
+      background: url('images/bimage.jpg') no-repeat center center fixed;
+      background-size: cover;
+      /* Ensures the image covers the entire background */
+    }
 
-/* Bottom Header Styling */
-.bottom-header {
-  background-color: #333;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between; /* Aligns content to the left and right */
-  align-items: center; /* Vertically centers content */
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
 
-.header-title {
-  display: flex;
-  align-items: center; /* Vertically align logo and title */
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  margin: 0;
-}
+    /* Bottom Header Styling */
+    .bottom-header {
+      background-color: #333;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      /* Aligns content to the left and right */
+      align-items: center;
+      /* Vertically centers content */
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
 
-.header-title .logo {
-  width: 40px; /* Set the size of the logo */
-  height: auto; /* Keep aspect ratio */
-  margin-right: 10px; /* Add space between logo and title */
-}
+    .header-title {
+      display: flex;
+      align-items: center;
+      /* Vertically align logo and title */
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      margin: 0;
+    }
 
-.header-title h1 {
-  margin: 0; /* Remove default margin */
-}
+    .header-title .logo {
+      width: 40px;
+      /* Set the size of the logo */
+      height: auto;
+      /* Keep aspect ratio */
+      margin-right: 10px;
+      /* Add space between logo and title */
+    }
 
-.dropdown-menu {
-  display: flex; /* Aligns dropdowns in a row */
-  justify-content: flex-end; /* Align all dropdowns to the right */
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+    .header-title h1 {
+      margin: 0;
+      /* Remove default margin */
+    }
 
-.dropdown {
-  position: relative;
-  margin: 0 10px;
-}
+    .dropdown-menu {
+      display: flex;
+      /* Aligns dropdowns in a row */
+      justify-content: flex-end;
+      /* Align all dropdowns to the right */
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-.dropbtn {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+    .dropdown {
+      position: relative;
+      margin: 0 10px;
+    }
 
-.dropbtn:hover {
-  background-color: #444;
-}
+    .dropbtn {
+      background-color: #121312;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-.dropdown-content {
-  display: none; /* Hidden by default */
-  position: absolute;
-  top: 100%; /* Align below the button */
-  left: 0; /* Align with the button */
-  background-color: white;
-  min-width: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 10; /* Ensure it appears above other content */
-  border: 1px solid #ddd;
-}
+    .dropbtn:hover {
+      background-color: #171817;
+    }
 
-.dropdown-content a {
-  color: black;
-  padding: 10px 15px;
-  text-decoration: none;
-  display: block;
-  font-size: 14px;
-}
+    .dropdown-content {
+      display: none;
+      /* Hidden by default */
+      position: absolute;
+      top: 100%;
+      /* Align below the button */
+      left: 0;
+      /* Align with the button */
+      background-color: white;
+      min-width: 200px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      /* Ensure it appears above other content */
+      border: 1px solid #ddd;
+    }
 
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
+    .dropdown-content a {
+      color: black;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
 
-.dropdown:hover .dropdown-content {
-  display: block; /* Show dropdown items on hover */
-}
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
 
-/* Form Container Styling */
-.form-container {
-  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-  padding: 20px 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  position: relative;
-  z-index: 10; /* Ensures the form stays above the background image */
-  margin-top: 100px; /* Adjusts the form's position to not overlap with the fixed header */
-}
+    .dropdown:hover .dropdown-content {
+      display: block;
+      /* Show dropdown items on hover */
+    }
 
-.form-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+    /* Add to Cart Icon */
+    /* Add to Cart Icon */
+    .cart-icon {
+      font-size: 28px;
+      /* Adjust the size of the icon */
+      color: rgb(245, 241, 241);
+      /* Set the desired color */
+      cursor: pointer;
+      line-height: 1;
+      /* Fix vertical alignment issues */
+      display: inline-block;
+      /* Ensure it's treated as a standalone element */
+      vertical-align: middle;
+      /* Align with other elements if necessary */
+      padding-right: 35px;
+    }
 
-.form-container label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
 
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container input[type="password"],
-.form-container input[type="tel"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
+    .cart-icon:hover {
+      color: #141514;
+      /* Change color on hover for better interactivity */
+    }
 
-.form-container button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-}
+    /* Form Container Styling */
+    .form-container {
+      background: rgba(255, 255, 255, 0.9);
+      /* Semi-transparent white background */
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      position: relative;
+      z-index: 10;
+      /* Ensures the form stays above the background image */
+      margin-top: 100px;
+      /* Adjusts the form's position to not overlap with the fixed header */
+    }
 
-.form-container button:hover {
-  background-color: #0056b3;
-}
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-.form-container .toggle-button {
-  margin-top: 10px;
-  background-color: #6c757d;
-}
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
 
-.form-container .toggle-button:hover {
-  background-color: #5a6268;
-}
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container input[type="password"],
+    .form-container input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
 
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0d0d0e;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #0d0d0d;
+    }
+
+    .form-container .toggle-button {
+      margin-top: 10px;
+      background-color: #0d0d0d;
+    }
+
+    .form-container .toggle-button:hover {
+      background-color: #0f0f10;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Bottom Header -->
@@ -178,22 +223,30 @@ body {
       <h1>Krishana Pearls</h1> <!-- Added "Krishana Pearls" here -->
     </div>
     <nav class="dropdown-menu">
-      <!-- Dropdown 3: Plain Pearl -->
-      <div class="dropdown">
-        <button class="dropbtn">Plain Pearl</button>
-        <div class="dropdown-content">
-          <a href="#singlepearl">Single Pearl</a>
-          <a href="#loosepearls">Loose Pearls</a>
-        </div>
-      </div>
+      <!-- Dropdown 1: Bulk Order -->
       <div class="dropdown">
         <button class="dropbtn"><a href="login.html" style="color: white;">Bulk Order</a></button>
       </div>
+
+      <!-- Dropdown 2: Login -->
       <div class="dropdown">
-        <button class="dropbtn"><a href="login.html" style="color: white;">LOGIN</a></button>
+        <button class="dropbtn"><a href="login.html" style="color: white;">Login</a></button>
+      </div>
+
+      <!-- Dropdown 3: Add to Cart -->
+      <div class="dropdown">
+        <div>
+          <i class="fas fa-shopping-cart cart-icon"></i>
+        </div>
+
+      </div>
+
       </div>
     </nav>
   </header>
+
+
+
 
   <div class="form-container">
     <!-- Login Form -->
@@ -201,10 +254,10 @@ body {
     <form id="login-form" action="#" method="POST">
       <label for="login-email">Email</label>
       <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
-    
+
       <label for="login-password">Password</label>
       <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
-    
+
       <button type="submit">Login</button>
       <button type="button" class="toggle-button" onclick="showRegister()">Register</button>
     </form>
@@ -226,7 +279,8 @@ body {
         <input type="password" id="register-password" name="password" placeholder="Enter your password" required>
 
         <label for="register-confirm-password">Confirm Password</label>
-        <input type="password" id="register-confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+        <input type="password" id="register-confirm-password" name="confirm-password"
+          placeholder="Confirm your password" required>
 
         <button type="submit">Register</button>
         <button type="button" class="toggle-button" onclick="showLogin()">Back to Login</button>
@@ -242,7 +296,7 @@ body {
     };
 
     // Function to handle login
-    document.getElementById('login-form').addEventListener('submit', function(event) {
+    document.getElementById('login-form').addEventListener('submit', function (event) {
       event.preventDefault(); // Prevent form submission to reload the page
 
       // Get input values
@@ -269,4 +323,5 @@ body {
     }
   </script>
 </body>
+
 </html>

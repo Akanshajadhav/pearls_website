@@ -113,7 +113,7 @@
             <img id="productImage" src="https://via.placeholder.com/150" alt="Product Image">
 
             <!-- Product Price -->
-            <p id="priceText">Price: $20</p>
+            <p id="priceText">Price: ₹20</p>
 
             <!-- Quantity and Buttons -->
             <div class="quantity">
@@ -123,7 +123,7 @@
             </div>
 
             <!-- Total Price -->
-            <p id="totalPrice">Total: $20</p>
+            <p id="totalPrice">Total: ₹20</p>
 
             <!-- Buy Button -->
             <button id="buyBtn" class="buy-btn">Buy</button>
@@ -176,7 +176,7 @@
         // Update the total price
         function updateTotalPrice(quantity) {
             const total = productPrice * quantity;
-            totalPriceText.innerText = `Total: $${total}`;
+            totalPriceText.innerText = `Total: ₹${total}`;
         }
 
         // Handle the Buy Button (example)
