@@ -1,0 +1,204 @@
+
+/* Make the body use a full-screen background image */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Ensures the header stays at the top while the form is centered */
+  justify-content: center;
+  align-items: center;
+  background: url('images/bimage.jpg') no-repeat center center fixed;
+  background-size: cover;
+  /* Ensures the image covers the entire background */
+}
+
+
+/* Bottom Header Styling */
+.bottom-header {
+  background-color: #333;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  /* Aligns content to the left and right */
+  align-items: center;
+  /* Vertically centers content */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  /* Vertically align logo and title */
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-title .logo {
+  width: 40px;
+  /* Set the size of the logo */
+  height: auto;
+  /* Keep aspect ratio */
+  margin-right: 10px;
+  /* Add space between logo and title */
+}
+
+.header-title h1 {
+  margin: 0;
+  /* Remove default margin */
+}
+
+.dropdown-menu {
+  display: flex;
+  /* Aligns dropdowns in a row */
+  justify-content: flex-end;
+  /* Align all dropdowns to the right */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown {
+  position: relative;
+  margin: 0 10px;
+}
+
+.dropbtn {
+  background-color: #121312;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropbtn:hover {
+  background-color: #171817;
+}
+
+.dropdown-content {
+  display: none;
+  /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  /* Align below the button */
+  left: 0;
+  /* Align with the button */
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  /* Ensure it appears above other content */
+  border: 1px solid #ddd;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  /* Show dropdown items on hover */
+}
+
+/* Add to Cart Icon */
+/* Add to Cart Icon */
+.cart-icon {
+  font-size: 28px;
+  /* Adjust the size of the icon */
+  color: rgb(245, 241, 241);
+  /* Set the desired color */
+  cursor: pointer;
+  line-height: 1;
+  /* Fix vertical alignment issues */
+  display: inline-block;
+  /* Ensure it's treated as a standalone element */
+  vertical-align: middle;
+  /* Align with other elements if necessary */
+  padding-right: 35px;
+}
+
+
+.cart-icon:hover {
+  color: #141514;
+  /* Change color on hover for better interactivity */
+}
+
+/* Form Container Styling */
+.form-container {
+  background: rgba(255, 255, 255, 0.9);
+  /* Semi-transparent white background */
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  position: relative;
+  z-index: 10;
+  /* Ensures the form stays above the background image */
+  margin-top: 100px;
+  /* Adjusts the form's position to not overlap with the fixed header */
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0d0d0e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #0d0d0d;
+}
+
+.form-container .toggle-button {
+  margin-top: 10px;
+  background-color: #0d0d0d;
+}
+
+.form-container .toggle-button:hover {
+  background-color: #0f0f10;
+}

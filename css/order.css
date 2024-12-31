@@ -1,0 +1,375 @@
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.product-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f3e5f5;
+    color: #4a148c;
+}
+
+.product-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #020202;
+    margin: 10px 0;
+}
+
+.product-button {
+    background-color: #060606;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.product-button:hover {
+    background-color: #060606;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #f4eef4;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.modal img {
+    width: 100%;
+    height: auto;
+}
+
+.quantity-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.quantity-button {
+    background-color: #f3e5f5;
+    border: 1px solid #4a148c;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.quantity-button:hover {
+    background-color: #0c0c0c;
+    color: #fff;
+}
+
+.modal-footer {
+    margin-top: 20px;
+}
+
+.buy-button {
+    background-color: #0d0d0e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.buy-button:hover {
+    background-color: #111111;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 550px;
+    font-size: 28px;
+    cursor: pointer;
+    color: rgb(240, 235, 235);
+}
+
+/* General Styles */
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.product-header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.product-header h2 {
+    font-size: 2.5rem;
+    color: #0e0e0e;
+    margin-bottom: 30px;
+}
+
+/* Product Section Styles */
+.traditional-love-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.hover-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    position: relative;
+    /* Ensure the images are positioned inside the card */
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.image-default,
+.image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-hover {
+    opacity: 0;
+    /* Hide hover image by default */
+}
+
+.hover-card:hover .image-hover {
+    opacity: 1;
+    /* Show hover image when hovering */
+}
+
+.hover-card:hover .image-default {
+    opacity: 0;
+    /* Hide default image on hover */
+}
+
+/* Product Info Styles */
+.product-info {
+    padding: 15px;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    color: #0f0e0e;
+    margin: 5px 0;
+}
+
+.product-button {
+    background-color: #0e0e0e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-button:hover {
+    background-color: #050505;
+}
+
+/* Hover Effect for Card */
+.hover-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Bottom Header Styling */
+.bottom-header {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    /* Aligns content to the left and right */
+    align-items: center;
+    /* Vertically centers content */
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    /* Vertically align logo and title */
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header-title .logo {
+    width: 40px;
+    /* Set the size of the logo */
+    height: auto;
+    /* Keep aspect ratio */
+    margin-right: 10px;
+    /* Add space between logo and title */
+}
+
+.header-title h1 {
+    margin: 0;
+    /* Remove default margin */
+}
+
+.dropdown-menu {
+    display: flex;
+    /* Aligns dropdowns in a row */
+    justify-content: flex-end;
+    /* Align all dropdowns to the right */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown {
+    position: relative;
+    margin: 0 10px;
+}
+
+.dropbtn {
+    background-color: #070707;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropbtn:hover {
+    background-color: #111111;
+}
+
+.dropdown-content {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    /* Align below the button */
+    left: 0;
+    /* Align with the button */
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    /* Ensure it appears above other content */
+    border: 1px solid #ddd;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    /* Show dropdown items on hover */
+}
+
+/* Buy Now Icon */
+.cart-icon {
+    font-size: 28px;
+    /* Adjust the size of the icon */
+    color: rgb(245, 241, 241);
+    /* Set the desired color */
+    cursor: pointer;
+    line-height: 1;
+    /* Fix vertical alignment issues */
+    display: inline-block;
+    /* Ensure it's treated as a standalone element */
+    vertical-align: middle;
+    /* Align with other elements if necessary */
+
+}

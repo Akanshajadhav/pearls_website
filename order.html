@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/order.css">
     <!-- Bottom Header -->
     <header class="bottom-header">
         <div class="header-title">
@@ -38,383 +39,7 @@
 
     <title>Jewelry Products</title>
 
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-
-        .product-header {
-            text-align: center;
-            padding: 20px;
-            background-color: #f3e5f5;
-            color: #4a148c;
-        }
-
-        .product-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .product {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            width: 200px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .product:hover {
-            transform: translateY(-10px);
-        }
-
-        .product img {
-            width: 100%;
-            height: auto;
-        }
-
-        .product-info {
-            padding: 10px;
-            text-align: center;
-        }
-
-        .product-title {
-            font-size: 18px;
-            margin: 5px 0;
-        }
-
-        .product-price {
-            font-size: 16px;
-            color: #020202;
-            margin: 10px 0;
-        }
-
-        .product-button {
-            background-color: #060606;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: background-color 0.3s;
-        }
-
-        .product-button:hover {
-            background-color: #060606;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #f4eef4;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .modal img {
-            width: 100%;
-            height: auto;
-        }
-
-        .quantity-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .quantity-button {
-            background-color: #f3e5f5;
-            border: 1px solid #4a148c;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .quantity-button:hover {
-            background-color: #0c0c0c;
-            color: #fff;
-        }
-
-        .modal-footer {
-            margin-top: 20px;
-        }
-
-        .buy-button {
-            background-color: #0d0d0e;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .buy-button:hover {
-            background-color: #111111;
-        }
-
-        .close {
-            position: absolute;
-            top: 40px;
-            right: 500px;
-            font-size: 26px;
-            cursor: pointer;
-            color: black;
-        }
-
-        /* General Styles */
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-
-        .product-header {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .product-header h2 {
-            font-size: 2.5rem;
-            color: #0e0e0e;
-            margin-bottom: 30px;
-        }
-
-        /* Product Section Styles */
-        .traditional-love-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 0 20px;
-        }
-
-        .hover-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 250px;
-            text-align: center;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-            position: relative;
-            /* Ensure the images are positioned inside the card */
-        }
-
-        /* Image Container */
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .image-default,
-        .image-hover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .image-hover {
-            opacity: 0;
-            /* Hide hover image by default */
-        }
-
-        .hover-card:hover .image-hover {
-            opacity: 1;
-            /* Show hover image when hovering */
-        }
-
-        .hover-card:hover .image-default {
-            opacity: 0;
-            /* Hide default image on hover */
-        }
-
-        /* Product Info Styles */
-        .product-info {
-            padding: 15px;
-        }
-
-        .product-title {
-            font-size: 1.2rem;
-            color: #333;
-            margin: 10px 0;
-        }
-
-        .product-price {
-            font-size: 1.1rem;
-            color: #0f0e0e;
-            margin: 5px 0;
-        }
-
-        .product-button {
-            background-color: #0e0e0e;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .product-button:hover {
-            background-color: #050505;
-        }
-
-        /* Hover Effect for Card */
-        .hover-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Bottom Header Styling */
-        .bottom-header {
-            background-color: #333;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            /* Aligns content to the left and right */
-            align-items: center;
-            /* Vertically centers content */
-        }
-
-        .header-title {
-            display: flex;
-            align-items: center;
-            /* Vertically align logo and title */
-            color: white;
-            font-size: 15px;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .header-title .logo {
-            width: 40px;
-            /* Set the size of the logo */
-            height: auto;
-            /* Keep aspect ratio */
-            margin-right: 10px;
-            /* Add space between logo and title */
-        }
-
-        .header-title h1 {
-            margin: 0;
-            /* Remove default margin */
-        }
-
-        .dropdown-menu {
-            display: flex;
-            /* Aligns dropdowns in a row */
-            justify-content: flex-end;
-            /* Align all dropdowns to the right */
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .dropdown {
-            position: relative;
-            margin: 0 10px;
-        }
-
-        .dropbtn {
-            background-color: #070707;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .dropbtn:hover {
-            background-color: #111111;
-        }
-
-        .dropdown-content {
-            display: none;
-            /* Hidden by default */
-            position: absolute;
-            top: 100%;
-            /* Align below the button */
-            left: 0;
-            /* Align with the button */
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-            /* Ensure it appears above other content */
-            border: 1px solid #ddd;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 10px 15px;
-            text-decoration: none;
-            display: block;
-            font-size: 14px;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-            /* Show dropdown items on hover */
-        }
-
-        /* Buy Now Icon */
-        .cart-icon {
-            font-size: 28px;
-            /* Adjust the size of the icon */
-            color: rgb(245, 241, 241);
-            /* Set the desired color */
-            cursor: pointer;
-            line-height: 1;
-            /* Fix vertical alignment issues */
-            display: inline-block;
-            /* Ensure it's treated as a standalone element */
-            vertical-align: middle;
-            /* Align with other elements if necessary */
-
-        }
  
-    </style>
 </head>
 
 <body>
@@ -425,217 +50,164 @@
     <div class="product-section">
         <!-- Product 1 -->
         <div class="product">
-            <img src="images/p1.jpg" alt="Fresh Water Pearls" class="product-image">
+            <img src="images/a1.jpg" alt="Natural Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Fresh Water Pearls</h3>
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
                 <p class="product-name">Origin:India</p>
-                <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p1.jpg" data-title="Fresh Water Pearls" data-price="100">Buy
+                <p class="product-price">₹80</p>
+                <button class="product-button" data-image="images/a1.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="80">Buy
                     Now</button>
             </div>
         </div>
         <!-- Product 2 -->
         <div class="product">
-            <img src="images/p1.jpg" alt="South Sea Pearls" class="product-image">
+            <img src="images/a2.jpg" alt="Natural Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">South Sea Pearls</h3>
-                <p class="product-name">Origin:India</p>
-                <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p1.jpg" data-title="South Sea Pearls"
-                    data-price="100">Buy Now</button>
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
+                <p class="product-name">Origin:Indonesia</p>
+                <p class="product-price">₹90</p>
+                <button class="product-button" data-image="images/a2.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="90">Buy Now</button>
             </div>
         </div>
 
         <div class="product">
-            <img src="images/p1.jpg" alt="Fresh Water Pearls" class="product-image">
+            <img src="images/a3.jpg" alt="Natural Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Fresh Water Pearls</h3>
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
+                <p class="product-name">Origin:Indonesia</p>
+                <p class="product-price">₹80</p>
+                <button class="product-button" data-image="images/a3.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="80">Buy Now</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="images/a4.jpg" alt="Natural Fresh Water Pearls" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
                 <p class="product-name">Origin:India</p>
-                <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p1.jpg" data-title="Fresh Water Pearls"
-                    data-price="100">Buy Now</button>
+                <p class="product-price">₹80</p>
+                <button class="product-button" data-image="images/a4.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="80">Buy
+                    Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/p1.jpg" alt="South Sea Pearls" class="product-image">
+            <img src="images/a5.jpg" alt="Natural Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">South Sea Pearls</h3>
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
                 <p class="product-name">Origin:India</p>
-                <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p1.jpg" data-title="South Sea Pearls" data-price="100">Buy
-                    Now</button>
+                <p class="product-price">₹90</p>
+                <button class="product-button" data-image="images/a5.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="90">Buy Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/p6.jpg" alt="Fresh Water Pearls" class="product-image">
+            <img src="images/a6.jpg" alt="Natural Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">Fresh Water Pearls</h3>
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
                 <p class="product-name">Origin:Indonesia</p>
                 <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p6.jpg" data-title="Fresh Water Pearls"
-                    data-price="100">Buy Now</button>
+                <button class="product-button" data-image="images/a6.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="100">Buy
+                    Now</button>
             </div>
         </div>
         <div class="product">
-            <img src="images/p6.jpg" alt="South Sea Pearls" class="product-image">
+            <img src="images/a1.jpg" alt="Natural Fresh Water Pearls" class="product-image">
             <div class="product-info">
-                <h3 class="product-title">South Sea Pearls</h3>
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
+                <p class="product-name">Origin:India</p>
+                <p class="product-price">₹80</p>
+                <button class="product-button" data-image="images/a1.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="80">Buy
+                    Now</button>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="images/a2.jpg" alt="Natural Fresh Water Pearls" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
+                <p class="product-name">Origin:Indonesia</p>
+                <p class="product-price">₹90</p>
+                <button class="product-button" data-image="images/a2.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="90">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="images/a3.jpg" alt="Natural Fresh Water Pearls" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
+                <p class="product-name">Origin:Indonesia</p>
+                <p class="product-price">₹80</p>
+                <button class="product-button" data-image="images/a3.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="80">Buy Now</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="images/a4.jpg" alt="Natural Fresh Water Pearls" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
+                <p class="product-name">Origin:India</p>
+                <p class="product-price">₹80</p>
+                <button class="product-button" data-image="images/a4.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="80">Buy
+                    Now</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="images/a5.jpg" alt="Natural Fresh Water Pearls" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
+                <p class="product-name">Origin:India</p>
+                <p class="product-price">₹90</p>
+                <button class="product-button" data-image="images/a5.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="90">Buy Now</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="images/a6.jpg" alt="Natural Fresh Water Pearls" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">Natural Fresh Water Pearls</h3>
                 <p class="product-name">Origin:Indonesia</p>
                 <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p6.jpg" data-title="South Sea Pearls" data-price="100">Buy
+                <button class="product-button" data-image="images/a6.jpg" data-title="Natural Fresh Water Pearls"
+                    data-price="100">Buy
                     Now</button>
             </div>
         </div>
-        <div class="product">
-            <img src="images/p6.jpg" alt="Fresh Water Pearls" class="product-image">
-            <div class="product-info">
-                <h3 class="product-title">Fresh Water Pearls</h3>
-                <p class="product-name">Origin:Indonesia</p>
-                <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p6.jpg" data-title="Fresh Water Pearls" data-price="100">Buy
-                    Now</button>
-            </div>
-        </div>
-        <div class="product">
-            <img src="images/p6.jpg" alt="South Sea Pearls" class="product-image">
-            <div class="product-info">
-                <h3 class="product-title">South Sea Pearls</h3>
-                <p class="product-name">Origin:Indonesia</p>
-                <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p6.jpg" data-title="South Sea Pearls" data-price="100">Buy
-                    Now</button>
-            </div>
-        </div>
-        <div class="product">
-            <img src="images/p3.jpg" alt="Fresh Water Pearls" class="product-image">
-            <div class="product-info">
-                <h3 class="product-title">Fresh Water Pearls</h3>
-                <p class="product-name">Origin:Australian</p>
-                <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p3.jpg" data-title="Fresh Water Pearls" data-price="100">Buy
-                    Now</button>
-            </div>
-        </div>
-        <div class="product">
-            <img src="images/p3.jpg" alt="South Sea Pearls" class="product-image">
-            <div class="product-info">
-                <h3 class="product-title">South Sea Pearls</h3>
-                <p class="product-name">Origin:Australian</p>
-                <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p3.jpg" data-title="South Sea Pearls" data-price="100">Buy
-                    Now</button>
-            </div>
-        </div>
-        <div class="product">
-            <img src="images/p3.jpg" alt="Fresh Water Pearls" class="product-image">
-            <div class="product-info">
-                <h3 class="product-title">Fresh Water Pearls</h3>
-                <p class="product-name">Origin:Australian</p>
-                <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p3.jpg" data-title="Fresh Water Pearls" data-price="100">Buy
-                    Now</button>
-            </div>
-        </div>
-        <div class="product">
-            <img src="images/p3.jpg" alt="South Sea Pearls" class="product-image">
-            <div class="product-info">
-                <h3 class="product-title">South Sea Pearls</h3>
-                <p class="product-name">Origin:Australian</p>
-                <p class="product-price">₹100</p>
-                <button class="product-button" data-image="images/p3.jpg" data-title="South Sea Pearls" data-price="100">Buy
-                    Now</button>
-            </div>
-        </div>
+
         <!-- Add more rings here -->
     </div>
 
 
 
-        <!-- Modal -->
-        <div id="cartModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times; </span>
-                <img id="modalImage" src="" alt="Product Image">
-                <h3 id="modalTitle"></h3>
-               
-                <p id="modalPrice"></p>
+    <!-- Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times; </span>
+            <img id="modalImage" src="" alt="Product Image">
+            <h3 id="modalTitle"></h3>
 
-                <div class="quantity-controls">
-                    <button id="decreaseQuantity" class="quantity-button">-</button>
-                    <span id="quantity">1 </span>
-                    <button id="increaseQuantity" class="quantity-button">+</button>
-                </div>
+            <p id="modalPrice"></p>
 
-                <div class="modal-footer">
-                    <button id="buyButton" class="buy-button">Buy</button>
-                </div>
+            <div class="quantity-controls">
+                <button id="decreaseQuantity" class="quantity-button">-</button>
+                <span id="quantity">1 </span>
+                <button id="increaseQuantity" class="quantity-button">+</button>
+            </div>
+
+            <div class="modal-footer">
+                <button id="buyButton" class="buy-button">Buy</button>
             </div>
         </div>
+    </div>
+    <script src="js/order.js"></script>
 
-        <script>
-            // Set the exchange rate (e.g., 1 USD = 83 INR; you can update this value dynamically if needed)
-            const exchangeRate = 1;
-
-            // Modal and quantity management
-            const modal = document.getElementById("cartModal");
-            const closeModal = document.querySelector(".close");
-            const productButtons = document.querySelectorAll(".product-button");
-            const modalImage = document.getElementById("modalImage");
-            const modalTitle = document.getElementById("modalTitle");
-            const modalPrice = document.getElementById("modalPrice");
-            const quantityElement = document.getElementById("quantity");
-            let quantity = 1;
-
-            productButtons.forEach(button => {
-                button.addEventListener("click", () => {
-                    const imageSrc = button.getAttribute("data-image");
-                    const title = button.getAttribute("data-title");
-                    const priceInDollars = parseFloat(button.getAttribute("data-price"));
-
-                    const priceInRupees = (priceInDollars * exchangeRate).toFixed(2);
-
-                    modalImage.src = imageSrc;
-                    modalTitle.textContent = title;
-                    modalPrice.textContent = `₹${priceInRupees} x ${quantity} Carat = ₹${(priceInRupees * quantity).toFixed(2)}`;
-                    modal.style.display = "flex";
-                });
-            });
-
-            closeModal.addEventListener("click", () => {
-                modal.style.display = "none";
-            });
-
-            // Increase/Decrease Quantity
-            document.getElementById("increaseQuantity").addEventListener("click", () => {
-                quantity++;
-                updatePrice();
-            });
-
-            document.getElementById("decreaseQuantity").addEventListener("click", () => {
-                if (quantity > 1) {
-                    quantity--;
-                    updatePrice();
-                }
-            });
-
-            // Update the price display
-            function updatePrice() {
-                const priceInRupees = parseFloat(modalPrice.textContent.split(" x")[0].substring(1));
-                modalPrice.textContent = `₹${priceInRupees} x ${quantity} Carat =  ₹${(priceInRupees * quantity).toFixed(2)}`;
-                quantityElement.textContent = quantity;
-            }
-            
-
-            // Buy Button Logic
-            document.getElementById("buyButton").addEventListener("click", () => {
-                // Alert before navigating to the payment page
-                alert("Your order has been placed! Thank you for your purchase.");
-
-                // Redirect to the payment.html page
-                window.location.href = "payment.html";  // Change this URL if the payment page is located in a different folder
-            });
-
-        </script>
+   
 </body>
 
 </html>
