@@ -277,7 +277,7 @@ function showToast(message) {
             productElement.setAttribute('data-carat', pearl.carat);
     
             // Construct the image URL dynamically
-            const imageUrl = `http://192.168.29.32:5000/uploads/${pearl.image}`;
+            const imageUrl = "http://192.168.29.32:5000" + pearl.image; // Construct the full image URL
     
             productElement.innerHTML = `
                 <a href="product-detail.html?product=${pearl.carat}">
@@ -289,7 +289,7 @@ function showToast(message) {
                 </a>
             `;
     
-            productContainer.appendChild(productElement);
+            productContainer.appendChild(productElement);3
         });
     }
     
