@@ -4,6 +4,8 @@
 
 async function handleLogin(event) {
     event.preventDefault(); // Prevent the form from refreshing the page
+    console.log("Running..");
+    
 
     // Get the values from the form
     const email = document.getElementById('login-email').value;
@@ -50,41 +52,40 @@ async function handleLogin(event) {
     event.preventDefault(); // Prevent the default form submission behavior
 
     // Collect form data
-    const name = document.getElementById('register-name').value;
+const name = document.getElementById('register-name').value;
     const email = document.getElementById('register-email').value;
     const mobile = document.getElementById('register-mobile').value;
     const password = document.getElementById('register-password').value;
     const confirmPassword = document.getElementById('register-confirm-password').value;
 
-    // Create JSON payload
-    const payload = {
-      name: name,
-      email: email,
-      mobile: mobile,
-      password: password,
-      confirm_password: confirmPassword,
-    };
+    // Ensure passwords match
+    if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
+
+    const payload = { name, email, mobile, password };
 
     try {
-      // Make POST request to the API
-      const response = await fetch('http://192.168.29.32:5000/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+        const response = await fetch('http://192.168.29.32:5000/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        });
 
-      // Handle the API response
-      const data = await response.json();
-      if (response.ok) {
-        alert('Registration successful: ' + data.message);
-      } else {
-        alert('Registration failed: ' + data.message);
-      }
+        const data = await response.json();
+        console.log('API Response:', data); // Log the API response for debugging
+
+        if (response.ok) {
+            alert('Registration successful: ' + (data.message || 'Success!'));
+        } else {
+            alert('Registration failed: ' + (data.message || 'Unknown error.'));
+        }
     } catch (error) {
-      alert('An error occurred: ' + error.message);
+        console.error('Error during registration:', error);
+        alert('An error occurred. Please try again.');
     }
+
   });
 
   function showLogin() {

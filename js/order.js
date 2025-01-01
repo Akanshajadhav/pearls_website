@@ -75,5 +75,44 @@ document.getElementById("buyButton").addEventListener("click", () => {
     alert("Product added to cart successfully!");
     window.location.href = "checkout.html";
 });
+async function fetchProducts() {
+    try {
+        const response = await fetch('http://192.168.29.32:5000/bulk_order');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const products = await response.json(); // Assuming the API returns a JSON array of products
+        renderProducts(products);
+    } catch (error) {
+        console.error('Failed to fetch products:', error);
+    }
+}
 
+function renderProducts(products) {
+    const productSection = document.querySelector('.product-section');
+    productSection.innerHTML = ''; // Clear existing products
+
+    products.forEach(product => {
+        const productHTML = `
+            <div class="product">
+                <img src="${product.image}" alt="${product.name}" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">${product.name}</h3>
+                    <p class="product-name">Origin: ${product.origin}</p>
+                    <p class="product-price">₹${product.per_carat_price}</p>
+                    <button class="product-button" 
+                            data-image="${product.image}" 
+                            data-title="${product.name}" 
+                            data-price="${product.per_carat_price}">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        `;
+        productSection.innerHTML += productHTML;
+    });
+}
+
+// Call the function to fetch and display products
+fetchProducts();
 
